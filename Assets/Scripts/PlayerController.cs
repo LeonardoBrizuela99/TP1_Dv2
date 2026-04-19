@@ -5,45 +5,20 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed = 10.0f;
     void Update()
     {
-        
-        if (Input.GetKey(KeyCode.W))
-        {
-            Vector3 nextPos = transform.forward * (speed * Time.deltaTime);
-            transform.position += nextPos;
-        }
-        ;
-
-        if (Input.GetKey(KeyCode.S))
-        {
-            Vector3 nextPos = -transform.forward * (speed * Time.deltaTime);
-            transform.position += nextPos;
-        }
-        ;
-
-        if (Input.GetKey(KeyCode.A))
-        {
-            Vector3 nextPos = -transform.right * (speed * Time.deltaTime);
-            transform.position += nextPos;
-        }
-        ;
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            Vector3 nextPos = transform.right * (speed * Time.deltaTime);
-            transform.position += nextPos;
-        }
-        ;
+        float movementY = 0.0f;
         if (Input.GetKey(KeyCode.Space))
         {
-            Vector3 nextPos = transform.up * (speed * Time.deltaTime);
-            transform.position += nextPos;
+            movementY = 1;
         }
         ;
         if (Input.GetKey(KeyCode.LeftControl))
         {
-            Vector3 nextPos = -transform.up * (speed * Time.deltaTime);
-            transform.position += nextPos;
+            movementY = -1;
         }
         ;
+        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"),movementY, (Input.GetAxis("Vertical")));
+        transform.Translate((movement*speed*Time.deltaTime));
+      
+        
     }
 }
