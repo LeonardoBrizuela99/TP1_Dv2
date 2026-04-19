@@ -2,23 +2,30 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float speed = 10.0f;
-    void Update()
+    [SerializeField] private float speed = 5.0f;
+    [SerializeField] private float rotationSpeed = 100.0f;
+
+    private void Update()
     {
-        float movementY = 0.0f;
+        if (Input.GetKey(KeyCode.RightShift))
+        {
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        }
+
+       
+        float pitch = -Input.GetAxis("Vertical") * rotationSpeed * Time.deltaTime;
+        float yaw = Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime;
+
+        float roll = 0.0f;
         if (Input.GetKey(KeyCode.Space))
         {
-            movementY = 1;
+            roll = -rotationSpeed * Time.deltaTime;
         }
-        ;
-        if (Input.GetKey(KeyCode.LeftControl))
+        else if (Input.GetKey(KeyCode.LeftControl))
         {
-            movementY = -1;
+            roll = rotationSpeed * Time.deltaTime;
         }
-        ;
-        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"),movementY, (Input.GetAxis("Vertical")));
-        transform.Translate((movement*speed*Time.deltaTime));
-      
         
+        transform.Rotate(new Vector3(pitch, yaw, roll), Space.Self);
     }
 }
