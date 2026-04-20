@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float bulletSpeed = 0.0f;
     [SerializeField] private Bullet prefabBullet;
     [SerializeField] private Transform tip;
+    [SerializeField] private Transform bulletContent;
 
     private void Update()
     {
@@ -21,7 +22,7 @@ public class PlayerController : MonoBehaviour
         {
             if (prefabBullet != null && tip != null)
             {
-                Bullet bullet = Instantiate(prefabBullet, tip.position, tip.rotation);
+                Bullet bullet = Instantiate(prefabBullet, tip.position, tip.rotation, bulletContent);
                 bullet.Logic(bulletSpeed);
             } 
         }
@@ -45,11 +46,21 @@ public class PlayerController : MonoBehaviour
         {
             roll = -rotationSpeed * Time.deltaTime;
         }
-        
+
         else if (Input.GetKey(KeyCode.LeftControl))
         {
             roll = rotationSpeed * Time.deltaTime;
         }
         transform.Rotate(new Vector3(pitch, yaw, roll), Space.Self);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        
+        if (other.gameObject.layer == LayerMask.NameToLayer("Default"))
+        {
+            
+            UnityEngine.SceneManagement.SceneManager.LoadScene(
+                UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+        }
     }
 }
