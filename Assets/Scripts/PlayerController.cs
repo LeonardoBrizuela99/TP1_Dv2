@@ -37,17 +37,17 @@ public class PlayerController : MonoBehaviour
         float yaw = Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime;
         float roll = 0.0f;
 
-        if (Input.GetKey(KeyCode.RightShift))
+        if (Input.GetKey(KeyCode.Space))
         {
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
         }
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Q))
         {
             roll = -rotationSpeed * Time.deltaTime;
         }
 
-        else if (Input.GetKey(KeyCode.LeftControl))
+        else if (Input.GetKey(KeyCode.E))
         {
             roll = rotationSpeed * Time.deltaTime;
         }
@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
         {
             
             UnityEngine.SceneManagement.SceneManager.LoadScene(
-                UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+            UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
         }
     }
 }
