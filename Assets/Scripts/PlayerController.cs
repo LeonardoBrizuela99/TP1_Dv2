@@ -1,31 +1,51 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speed = 5.0f;
     [SerializeField] private float rotationSpeed = 100.0f;
+    [SerializeField] private GameObject prefabBullet;
+    [SerializeField] private Transform tip;
 
     private void Update()
     {
+        Shoot();
+        PlayerMovement();
+    }
+    private void Shoot()
+    {
+
+        if (Input.GetMouseButtonDown(0))
+        {
+
+            Instantiate(prefabBullet, tip.position,quaternion.identity);
+        }
+        ;
+
+
+    }
+
+    private void PlayerMovement()
+    {
+        float pitch = -Input.GetAxis("Vertical") * rotationSpeed * Time.deltaTime;
+        float yaw = Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime;
+        float roll = 0.0f;
+
         if (Input.GetKey(KeyCode.RightShift))
         {
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
         }
 
-       
-        float pitch = -Input.GetAxis("Vertical") * rotationSpeed * Time.deltaTime;
-        float yaw = Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime;
-
-        float roll = 0.0f;
         if (Input.GetKey(KeyCode.Space))
         {
             roll = -rotationSpeed * Time.deltaTime;
         }
+        
         else if (Input.GetKey(KeyCode.LeftControl))
         {
             roll = rotationSpeed * Time.deltaTime;
         }
-        
         transform.Rotate(new Vector3(pitch, yaw, roll), Space.Self);
     }
 }
