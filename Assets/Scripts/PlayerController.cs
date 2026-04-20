@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
 
-            Bullet bullet = Instantiate(prefabBullet, tip.position, quaternion.identity);
+            Bullet bullet = Instantiate(prefabBullet, tip.position, tip.rotation);
             bullet.Logic(bulletSpeed);
         }
         ;
