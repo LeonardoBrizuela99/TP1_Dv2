@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3234289367460300726}
   - component: {fileID: 8626144254543241931}
   - component: {fileID: 3531262135229024082}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 2483182993985197229}
   - component: {fileID: 7236487540968865352}
   - component: {fileID: 7410428167816700771}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -228,7 +228,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5430306914352758232}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -244,7 +244,7 @@ Transform:
   m_GameObject: {fileID: 5786238510017438860}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.248}
+  m_LocalPosition: {x: 0, y: 0, z: 0.273}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 3954847283790955923}
   - component: {fileID: 7289429556016795012}
   - component: {fileID: 4638539190553659540}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -397,7 +397,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4507469888212617523}
   - component: {fileID: -4041850202966379852}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -3,14 +3,21 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Bullet : MonoBehaviour
 {
-    private Rigidbody rigidbody;
+    private Rigidbody rb;
 
     private void Awake()
     {
-        rigidbody=GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
     }
     public void Logic(float speed)
     {
-        rigidbody.AddForce(transform.forward * speed);
+        rb.AddForce(transform.forward * speed);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Destroy(other.gameObject);
+        Destroy(gameObject);
+
     }
 }

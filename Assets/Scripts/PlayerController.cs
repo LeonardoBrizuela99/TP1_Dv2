@@ -19,9 +19,11 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-
-            Bullet bullet = Instantiate(prefabBullet, tip.position, tip.rotation);
-            bullet.Logic(bulletSpeed);
+            if (prefabBullet != null && tip != null)
+            {
+                Bullet bullet = Instantiate(prefabBullet, tip.position, tip.rotation);
+                bullet.Logic(bulletSpeed);
+            } 
         }
         ;
 
