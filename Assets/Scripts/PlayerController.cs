@@ -5,7 +5,8 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speed = 5.0f;
     [SerializeField] private float rotationSpeed = 100.0f;
-    [SerializeField] private GameObject prefabBullet;
+    [SerializeField] private float bulletSpeed = 0.0f;
+    [SerializeField] private Bullet prefabBullet;
     [SerializeField] private Transform tip;
 
     private void Update()
@@ -19,7 +20,8 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
 
-            Instantiate(prefabBullet, tip.position,quaternion.identity);
+            Bullet bullet = Instantiate(prefabBullet, tip.position, quaternion.identity);
+            bullet.Logic(bulletSpeed);
         }
         ;
 
